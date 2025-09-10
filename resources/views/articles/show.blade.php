@@ -7,7 +7,13 @@
 </head>
 <body>
     <div>
-        <h1>{{ $article->title }}</h1>
+        <h2>
+            <a href="/articles/{{ $article->id }}">
+                {{ $article->title }}
+            </a>
+        </h2>
+        
+
         <p class="meta">
             By {{ $article->author?->name ?? 'Unknown author' }},
             {{ $article->created_at }}
