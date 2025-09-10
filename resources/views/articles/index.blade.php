@@ -1,4 +1,4 @@
-<x-site-layout>
+<x-site-layout title="All Articles">
 
     <h1>All Articles</h1>
 
@@ -17,7 +17,6 @@
                         By {{ $article->author?->name ?? 'Unknown author' }},
                         {{ $article->created_at->format('F j, Y') }}
                     </p>
-                    
                 </li>
             @endforeach
         </ul>
