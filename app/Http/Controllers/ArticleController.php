@@ -6,11 +6,17 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
+    public function index()
+    {
+        $articles = Article::get();
+
+        return view('articles.index', compact('articles'));
+    }
+
     public function show($id)
-{
-    $article = \App\Models\Article::find($id);
+    {
+        $article = Article::findOrFail($id);
 
-    return view('articles.show', compact('article'));
-}
-
+        return view('articles.show', compact('article'));
+    }
 }
