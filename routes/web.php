@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\ArticleController;
+
+Route::get('/articles', [ArticleController::class, 'index']);
+
 
 Route::get('/', function () {
     return view('welcome');
