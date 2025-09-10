@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Article extends Model
 {
     use HasFactory;
 
-    public function author()
+    // Accessor for created_at
+    protected function createdAt(): Attribute
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return Attribute::make(
+            get: fn ($value) => \Carbon\Carbon::parse($value)->format('F j, Y')
+        );
     }
 }

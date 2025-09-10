@@ -15,7 +15,7 @@
                     </h2>
                     <p class="meta">
                         By {{ $article->author?->name ?? 'Unknown author' }},
-                        {{ $article->created_at->format('F j, Y') }}
+                        {{ $article->created_at }}
                     </p>
                 </li>
             @endforeach
