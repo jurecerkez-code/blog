@@ -1,3 +1,5 @@
+<?php
+
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\ArticleController;
