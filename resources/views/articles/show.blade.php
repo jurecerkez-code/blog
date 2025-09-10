@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $article->title }}</title>
-</head>
-<body>
-    <div>
-        <h2>
-            <a href="/articles/{{ $article->id }}">
-                {{ $article->title }}
-            </a>
-        </h2>
-        
+<x-site-layout>
 
+    <div>
+        <h1>{{ $article->title }}</h1>
         <p class="meta">
             By {{ $article->author?->name ?? 'Unknown author' }},
             {{ $article->created_at }}
@@ -23,6 +11,6 @@
         </div>
     </div>
     
-    <p><a href="/articles">Back to articles overview </a></p>
-</body>
-</html>
+    <p><a href="{{ route('articles.index') }}">Back to articles overview</a></p>
+
+</x-site-layout>
