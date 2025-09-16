@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Article extends Model
 {
-   class Article extends Model
-{
     use HasFactory;
-
     protected $fillable = ['title', 'content'];
 
     protected function createdAt(): Attribute
