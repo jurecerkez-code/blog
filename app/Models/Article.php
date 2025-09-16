@@ -9,8 +9,20 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content'];
 
+    protected $fillable = ['title', 'content', 'author_id', 'published'];
+
+    /**
+     * Relation: Article belongs to author (user)
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * Format created_at
+     */
     protected function createdAt(): Attribute
     {
         return Attribute::make(
@@ -18,4 +30,3 @@ class Article extends Model
         );
     }
 }
-
