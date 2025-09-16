@@ -1,9 +1,7 @@
 <?php
-<?php
 
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Facades\Volt;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,16 +17,12 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
     Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
-    // Settings routes
-    Route::redirect('settings', 'settings/profile');
-    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
-    Volt::route('settings/password', 'settings.password')->name('settings.password');
-    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
+    // Settings routes (temporary)
+    Route::view('settings/profile', 'settings.profile')->name('settings.profile');
+    Route::view('settings/password', 'settings.password')->name('settings.password');
+    Route::view('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
-    // Dashboard
-    Route::view('dashboard', 'dashboard')
-        ->middleware(['verified'])
-        ->name('dashboard');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
